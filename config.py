@@ -10,15 +10,15 @@ APP_ENV = os.getenv("APP_ENV", "development").lower()
 
 # load environment variables from .env files in order of precedence
 env_files = [
-    BASE_DIR / ".env",
-    BASE_DIR / f".env.{APP_ENV}",
     BASE_DIR / f".env.{APP_ENV}.local",
+    BASE_DIR / f".env.{APP_ENV}",
+    BASE_DIR / ".env",
 ]
 
 for env_file in env_files:
     if env_file.exists():
         print(f"Loading environment file: {env_file}")
-        load_dotenv(dotenv_path=env_file, override=True)
+        load_dotenv(dotenv_path=env_file, override=False)
 
 
 # class for centralized settings management
