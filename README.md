@@ -11,6 +11,15 @@ Python project demonstrating the use of `python-dotenv` for managing environment
 - Supports multiple environment configurations (development, production, local overrides).
 - Easy integration with `uv` for environment-specific execution.
 
+## Hierarchical Loading of Environment Variables
+
+The project loads environment variables in the following order of precedence:
+
+1. Native environment variables set in the operating system
+2. `.env.<APP_ENV>.local` - Local overrides for the current environment (should not be committed to version control)
+3. `.env.<APP_ENV>` - Environment-specific variables
+4. `.env` - Default shared environment variables
+
 ## Quick Start
 
 This project is managed using [uv](https://github.com/astral-sh/uv). Follow the commands below to get started:
