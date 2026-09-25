@@ -49,3 +49,21 @@ lab-python-dotenv-guide/
 ├── pyproject.toml           # Project metadata and dependencies
 └── uv.lock                  # uv lockfile (auto-generated)
 ```
+
+## Docker
+
+Build the Docker image:
+
+```bash
+docker build -t lab-python-dotenv-guide .
+```
+
+Run the Docker container:
+
+```bash
+# Run the Docker container with the local environment variables from the .env file
+docker run -p 8000:8000 --env-file .env lab-python-dotenv-guide
+
+# Run the Docker container with the development environment variables
+docker run -p 8000:8000 -e APP_NAME=YOUR_APP_NAME lab-python-dotenv-guide
+```
